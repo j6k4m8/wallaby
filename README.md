@@ -106,3 +106,33 @@ w.get_by_tag(all_of=["foo", "bar", "baz"])
 ```python
 w.get_results_since(time.time() - 60*60)
 ```
+
+## Examples
+
+### Example with frof/Dory
+
+Your current frof file:
+
+```yml
+setup -> run_for_all_patients(&pt_id) -> cleanup
+
+setup:                  ...
+run_for_all_patients:   python3 analyze-patient.py
+cleanup:                ...
+
+&pt_id: [100, 204, 854, 2955, 4862]
+```
+
+Your new frof file:
+
+```yml
+setup -> run_for_all_patients(&pt_id) -> cleanup
+
+setup:                  ...
+run_for_all_patients:   wallaby --command 'python3 analyze-patient.py'
+cleanup:                ...
+
+&pt_id: [100, 204, 854, 2955, 4862]
+```
+
+Now all outputs of the analyze-patient step will be collected for later.
