@@ -136,3 +136,21 @@ cleanup:                ...
 ```
 
 Now all outputs of the analyze-patient step will be collected for later.
+
+### Example with slurm
+
+Your current slurm command file:
+
+```bash
+#SBATCH --array=0-100
+
+bash ./run-my-tool.sh
+```
+
+Your new slurm command file:
+
+```bash
+#SBATCH --array=0-100
+
+wallaby --command 'bash ./run-my-tool.sh'
+```
