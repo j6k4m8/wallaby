@@ -1,6 +1,10 @@
 # wallaby 🦘
 
-Wallaby is a simple, schemaless output-gobbler for running massively parallel jobs on a cluster, perhaps with a tool like [Dory](https://github.com/aplbrain/dory). There are NO DEPENDENCIES besides Python.
+You have a bunch of jobs running on a cluster. You want to collect output from all of them, but writing to files is a pain, and writing to a database requires schema design and config.
+
+---
+
+Wallaby is a simple, schemaless output-gobbler for collecting data from parallel jobs on a cluster, perhaps with a tool like [Dory](https://github.com/aplbrain/dory). There are NO DEPENDENCIES besides Python.
 
 Primary use-cases:
 
