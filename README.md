@@ -162,3 +162,15 @@ Your new slurm command file:
 
 wallaby --command 'bash ./run-my-tool.sh'
 ```
+
+
+# Collecting Results with `wallaby2json`
+
+The easiest way to collect results is with the `wallaby2json` tool, which converts saved results into a pandas-compatible JSON file.
+
+
+```bash
+wallaby2json -t foo,bar > results.json
+```
+
+The `-t` flag forwards to the `all_of` tag filter.
