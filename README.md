@@ -34,6 +34,14 @@ ls -lh | wallaby
 
 This will do the same as the above, but you will not have access to the command that you ran to get the results. In other words, the `command` field will be left blank. This is because you cannot access the name of a forked command from inside a downstream pipe. So if at all possible, run the `--command`-flag version!
 
+## Other Arguments
+
+You can also pass a `--tags` CSV to add a set of tags to the new record. For example:
+
+```shell
+wallaby --tags foo,bar,elephant --command 'ls -lah'
+```
+
 ## Module Mode
 
 ```python

@@ -171,6 +171,7 @@ def cli():
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-c","--command", default="")
+    parser.add_argument("-t","--tags", default="")
     args = parser.parse_args()
 
     environment = dict(os.environ)
@@ -196,6 +197,8 @@ def cli():
         "command": args.command or None
     }
 
+    other_tags = args.tags.split(",") if args.tags else []
+
     w = Wallaby()
-    w.log(result, tags=["cli"], jobtext=args.command or None)
+    w.log(result, tags=["cli", *other_tags], jobtext=args.command or None)
     print(output, end="")
