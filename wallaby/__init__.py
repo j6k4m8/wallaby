@@ -202,3 +202,27 @@ def cli():
     w = Wallaby()
     w.log(result, tags=["cli", *other_tags], jobtext=args.command or None)
     print(output, end="")
+
+
+def wallaby2json():
+    """
+    The command-line version of Wallaby. See Readme for usage.
+    """
+
+    import subprocess
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t","--all-tags", default="")
+    parser.add_argument("-e","--include-env", default=False, action='store_true')
+    args = parser.parse_args()
+
+    w = Wallaby()
+    all_tags = args.all_tags.split(",")
+    res = w.get_by_tag(all_of=all_tags, as_dataframe=True)
+    res.results = res.results.map(lambda x: json.loads(x))
+    res = res.join(pd.json_normalize(res.results))
+    res.drop(columns="results", inplace=True)
+    if not args.include_env:
+        res.drop(columns=[col for col in res.columns if col.startswith("environment.")], inplace=True)
+    print(res.to_json())
