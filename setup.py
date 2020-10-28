@@ -38,7 +38,10 @@ setup(
     keywords=["sqlite"],
     packages=find_packages(exclude=["docs", "tests*"]),
     include_package_data=True,
-    entry_points={"console_scripts": ["wallaby=wallaby:cli"],},
+    entry_points={"console_scripts": [
+        "wallaby=wallaby:cli",
+        "wallaby2json=wallaby:wallaby2json",
+    ],},
     author="Jordan Matelsky",
     install_requires=install_requires,
     dependency_links=dependency_links,
