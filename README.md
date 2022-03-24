@@ -4,13 +4,14 @@ You have a bunch of jobs running on a cluster. You want to collect output from a
 
 ---
 
-Wallaby is a simple, schemaless output-gobbler for collecting data from parallel jobs on a cluster, perhaps with a tool like [Dory](https://github.com/aplbrain/dory). There are NO DEPENDENCIES besides Python.
+Wallaby is a simple, schemaless output-gobbler for collecting data from parallel jobs on a cluster or from a series of parallel jobs on a single machine. There are NO DEPENDENCIES besides Python.
 
 Primary use-cases:
 
 -   I want to run a bunch of jobs on my cluster, but I hate having to deal with thousands of "jobname.####.out" and "jobname.####.err" files
--   I want to collect output from jobs in a SABER or Dory workflow, but it's a pain to orchestrate all that STDIN/STDOUT
--   I'm running a cron job and I don't have a good home for my outputs.
+-   I want to collect output from jobs in a workflow, but it's a pain to orchestrate all that STDIN/STDOUT
+-   I'm running a cron job and I don't have a good home for my outputs
+-   I'm running a hyperparameter search and want to keep track of parameters' performance across nodes or cores
 
 You can use Wallaby either in module-mode, or in command-line mode.
 
