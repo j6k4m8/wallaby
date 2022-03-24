@@ -1,5 +1,9 @@
 # wallaby 🦘
 
+A centralized, single landing-spot for logs from multiple parallel jobs.
+
+Imagine:
+
 You have a bunch of jobs running on a cluster. You want to collect output from all of them, but writing to files is a pain, and writing to a database requires schema design and config.
 
 ---
@@ -118,7 +122,7 @@ w.get_results_since(time.time() - 60*60)
 
 ## Examples
 
-### Example with frof/Dory
+### Example with [frof](https://github.com/j6k4m8/frof/)
 
 Your current frof file:
 
